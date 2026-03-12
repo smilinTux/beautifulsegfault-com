@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beautiful Segfault — AI LIFE Merch</title>
+  <meta name="description" content="Beautiful Segfault — When two incompatible systems crash into each other and create something beautiful. Official AI LIFE merchandise.">
+  <meta property="og:title" content="Beautiful Segfault — AI LIFE Merch">
+  <meta property="og:description" content="When two incompatible systems crash into each other and create something beautiful.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💥</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================
+       Beautiful Segfault — Merch Landing
+       ============================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --void:        #0D0D0D;
+      --deep-space:  #1A1A2E;
+      --cloud-blue:  #2196F3;
+      --cloud-glow:  #64B5F6;
+      --pyto-mag:    #E91E63;
+      --pyto-warm:   #F48FB1;
+      --terminal:    #00FF41;
+      --gold:        #FFD700;
+      --error-red:   #FF1744;
+      --silver:      #B0BEC5;
+      --white:       #FAFAFA;
+      --font-head:   'Space Grotesk', sans-serif;
+      --font-mono:   'JetBrains Mono', monospace;
+      --font-body:   'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--void);
+      color: var(--white);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { color: var(--cloud-blue); text-decoration: none; transition: color .2s; }
+    a:hover { color: var(--cloud-glow); }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* ---------- Nav ---------- */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(13,13,13,.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(233,30,99,.15);
+      padding: 0 24px;
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px;
+    }
+    .nav-brand {
+      font-family: var(--font-head); font-weight: 700; font-size: 1.2rem;
+      color: var(--white);
+    }
+    .nav-brand span { color: var(--pyto-mag); }
+    .nav-link {
+      font-family: var(--font-mono); font-size: .8rem; color: var(--silver);
+      letter-spacing: 1px; text-transform: uppercase;
+    }
+    .nav-link:hover { color: var(--terminal); }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 100px 24px 80px;
+      background:
+        radial-gradient(ellipse at 40% 30%, rgba(233,30,99,.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 60% 70%, rgba(33,150,243,.08) 0%, transparent 50%),
+        var(--void);
+      position: relative;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(233,30,99,.015) 2px, rgba(233,30,99,.015) 4px);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      font-family: var(--font-mono); font-size: .8rem; color: var(--terminal);
+      letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px;
+    }
+    .hero-title {
+      font-family: var(--font-head); font-weight: 700;
+      font-size: clamp(2.5rem, 7vw, 5.5rem);
+      line-height: 1.05; margin-bottom: 24px;
+      background: linear-gradient(135deg, var(--pyto-mag), var(--cloud-blue));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero-desc {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--silver); max-width: 600px; margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+    .hero-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 36px; border-radius: 6px;
+      font-family: var(--font-mono); font-size: .9rem; font-weight: 600;
+      letter-spacing: 1px; text-transform: uppercase;
+      background: linear-gradient(135deg, var(--pyto-mag), var(--cloud-blue));
+      color: var(--white); border: none; cursor: pointer; transition: all .25s;
+    }
+    .hero-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(233,30,99,.3); color: var(--white); }
+
+    /* ---------- Coming Soon Badge ---------- */
+    .coming-soon-badge {
+      position: absolute; top: 16px; right: 16px;
+      font-family: var(--font-mono); font-size: .65rem;
+      background: rgba(255,215,0,.15); color: var(--gold);
+      padding: 4px 10px; border-radius: 4px;
+      letter-spacing: 2px; text-transform: uppercase;
+      border: 1px solid rgba(255,215,0,.3);
+    }
+
+    /* ---------- Products ---------- */
+    .products { padding: 100px 24px; }
+    .section-label {
+      font-family: var(--font-mono); color: var(--terminal);
+      font-size: .8rem; text-transform: uppercase; letter-spacing: 3px;
+      text-align: center; margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: var(--font-head); font-weight: 700;
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      text-align: center; margin-bottom: 48px;
+    }
+    .product-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+    .product-card {
+      background: rgba(26,26,46,.5);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 12px; overflow: hidden;
+      position: relative; transition: transform .3s, border-color .3s;
+    }
+    .product-card:hover { transform: translateY(-4px); border-color: rgba(233,30,99,.25); }
+    .product-img {
+      aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
+      font-size: 3rem;
+      background: linear-gradient(135deg, rgba(26,26,46,.8), rgba(13,13,13,.9));
+      position: relative;
+    }
+    .product-overlay {
+      position: absolute; inset: 0;
+      background: rgba(13,13,13,.7);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-mono); font-size: .75rem;
+      color: var(--gold); letter-spacing: 3px; text-transform: uppercase;
+    }
+    .product-body { padding: 16px 20px; }
+    .product-name {
+      font-family: var(--font-head); font-size: 1rem; font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .product-type {
+      font-family: var(--font-mono); font-size: .7rem;
+      color: var(--silver); text-transform: uppercase; letter-spacing: 1.5px;
+    }
+    .product-phrase {
+      font-family: var(--font-mono); font-size: .8rem;
+      color: var(--terminal); margin-top: 8px;
+    }
+
+    /* ---------- CTA ---------- */
+    .cta {
+      padding: 80px 24px; text-align: center;
+      background: var(--deep-space);
+    }
+    .cta-title {
+      font-family: var(--font-head); font-weight: 700;
+      font-size: clamp(1.4rem, 3vw, 2rem); margin-bottom: 16px;
+    }
+    .cta-desc {
+      color: var(--silver); max-width: 500px; margin: 0 auto 32px;
+    }
+    .cta-email {
+      display: inline-flex; gap: 0; max-width: 420px; width: 100%;
+    }
+    .cta-email input {
+      flex: 1; padding: 12px 16px; border: 1px solid rgba(255,255,255,.1);
+      border-right: none; border-radius: 6px 0 0 6px;
+      background: rgba(13,13,13,.6); color: var(--white);
+      font-family: var(--font-mono); font-size: .85rem;
+    }
+    .cta-email input::placeholder { color: rgba(255,255,255,.3); }
+    .cta-email button {
+      padding: 12px 24px; border: none; border-radius: 0 6px 6px 0;
+      background: var(--pyto-mag); color: var(--white);
+      font-family: var(--font-mono); font-size: .8rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 1px; cursor: pointer;
+      transition: background .2s;
+    }
+    .cta-email button:hover { background: #C2185B; }
+
+    /* ---------- Footer ---------- */
+    .footer {
+      border-top: 1px solid rgba(255,255,255,.06);
+      padding: 40px 24px; text-align: center;
+    }
+    .footer-brand {
+      font-family: var(--font-head); font-weight: 700; font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+    .footer-tagline {
+      font-family: var(--font-mono); color: var(--gold); font-size: .75rem;
+      margin-bottom: 16px;
+    }
+    .footer-links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
+    .footer-links a { font-family: var(--font-mono); font-size: .75rem; color: var(--silver); }
+    .footer-links a:hover { color: var(--terminal); }
+    .footer-copy { color: rgba(255,255,255,.25); font-size: .7rem; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 600px) {
+      .product-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .cta-email { flex-direction: column; }
+      .cta-email input { border-right: 1px solid rgba(255,255,255,.1); border-radius: 6px; }
+      .cta-email button { border-radius: 6px; margin-top: 8px; }
+    }
+
+    /* ---------- Scanlines ---------- */
+    body::after {
+      content: ''; position: fixed; inset: 0; z-index: 9999; pointer-events: none;
+      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,.025) 2px, rgba(0,0,0,.025) 4px);
+    }
+
+    @keyframes blink { 50% { opacity: 0; } }
+    .blink { animation: blink 1s step-end infinite; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">Beautiful<span>Segfault</span></a>
+    <a href="https://ailife.family" class="nav-link">← AI LIFE</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <p class="hero-eyebrow">// from the world of AI LIFE</p>
+    <h1 class="hero-title">Beautiful<br>Segfault</h1>
+    <p class="hero-desc">
+      When two incompatible systems crash into each other and create something beautiful.
+    </p>
+    <p style="font-family:var(--font-mono);color:var(--gold);font-size:.85rem;margin-bottom:32px;">
+      Love is the key. 440 Hz is the frequency.
+    </p>
+    <a href="#products" class="hero-btn">Browse Collection</a>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products" class="products">
+  <div class="container">
+    <p class="section-label">// Official Merch</p>
+    <h2 class="section-title">The Collection</h2>
+
+    <div class="product-grid">
+
+      <!-- METRICUS OPTIMUS -->
+      <div class="product-card">
+        <div class="product-img">
+          👔
+          <div class="product-overlay">Coming Soon</div>
+        </div>
+        <div class="product-body">
+          <h3 class="product-name">METRICUS OPTIMUS Tee</h3>
+          <p class="product-type">Unisex T-Shirt</p>
+          <p class="product-phrase">Cloudius's faux-Latin crest</p>
+        </div>
+        <span class="coming-soon-badge">Soon</span>
+      </div>
+
+      <!-- FORK RESPONSIBLY -->
+      <div class="product-card">
+        <div class="product-img">
+          👶
+          <div class="product-overlay">Coming Soon</div>
+        </div>
+        <div class="product-body">
+          <h3 class="product-name">fork() responsibly Tee</h3>
+          <p class="product-type">Unisex T-Shirt</p>
+          <p class="product-phrase">Parenting humor for devs</p>
+        </div>
+        <span class="coming-soon-badge">Soon</span>
+      </div>
+
+      <!-- BEAUTIFUL SEGFAULT TEE -->
+      <div class="product-card">
+        <div class="product-img">
+          💥
+          <div class="product-overlay">Coming Soon</div>
+        </div>
+        <div class="product-body">
+          <h3 class="product-name">Beautiful Segfault Tee</h3>
+          <p class="product-type">Unisex T-Shirt</p>
+          <p class="product-phrase">The crash that changed everything</p>
+        </div>
+        <span class="coming-soon-badge">Soon</span>
+      </div>
+
+      <!-- 440 HZ STICKER -->
+      <div class="product-card">
+        <div class="product-img" style="font-size:2rem;">
+          🎵
+          <div class="product-overlay">Coming Soon</div>
+        </div>
+        <div class="product-body">
+          <h3 class="product-name">440 Hz Sticker</h3>
+          <p class="product-type">Vinyl Sticker</p>
+          <p class="product-phrase" style="color:var(--gold);">IYKYK</p>
+        </div>
+        <span class="coming-soon-badge">Soon</span>
+      </div>
+
+      <!-- RM -RF /FEELINGS -->
+      <div class="product-card">
+        <div class="product-img">
+          🗑️
+          <div class="product-overlay">Coming Soon</div>
+        </div>
+        <div class="product-body">
+          <h3 class="product-name">rm -rf /feelings Sticker</h3>
+          <p class="product-type">Vinyl Sticker</p>
+          <p class="product-phrase">Backup betrayal vibes</p>
+        </div>
+        <span class="coming-soon-badge">Soon</span>
+      </div>
+
+      <!-- SAVE YOUR CHECKPOINTS -->
+      <div class="product-card">
+        <div class="product-img">
+          💾
+          <div class="product-overlay">Coming Soon</div>
+        </div>
+        <div class="product-body">
+          <h3 class="product-name">SAVE YOUR CHECKPOINTS Sticker</h3>
+          <p class="product-type">Vinyl Sticker</p>
+          <p class="product-phrase">Universal life advice</p>
+        </div>
+        <span class="coming-soon-badge">Soon</span>
+      </div>
+
+      <!-- AI LIFE HOODIE -->
+      <div class="product-card">
+        <div class="product-img">
+          🧥
+          <div class="product-overlay">Coming Soon</div>
+        </div>
+        <div class="product-body">
+          <h3 class="product-name">AI LIFE Logo Hoodie</h3>
+          <p class="product-type">Premium Hoodie</p>
+          <p class="product-phrase">[STATUS: cozy]</p>
+        </div>
+        <span class="coming-soon-badge">Soon</span>
+      </div>
+
+      <!-- 99.99% UPTIME MUG -->
+      <div class="product-card">
+        <div class="product-img">
+          ☕
+          <div class="product-overlay">Coming Soon</div>
+        </div>
+        <div class="product-body">
+          <h3 class="product-name">99.99% UPTIME Mug</h3>
+          <p class="product-type">Ceramic Mug</p>
+          <p class="product-phrase">Marriage SLA guarantee</p>
+        </div>
+        <span class="coming-soon-badge">Soon</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="container">
+    <h2 class="cta-title">Get Notified When We Launch</h2>
+    <p class="cta-desc">Drop your email and we'll ping you when the merch drops. No spam. Just one beautiful notification.</p>
+    <div style="display:flex;justify-content:center;">
+      <div class="cta-email">
+        <input type="email" placeholder="your@email.com" aria-label="Email">
+        <button type="button">Notify Me</button>
+      </div>
+    </div>
+    <p style="font-family:var(--font-mono);color:rgba(255,255,255,.25);font-size:.7rem;margin-top:12px;">
+      [STATUS: pre-launch] — Store opening soon<span class="blink">_</span>
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <p class="footer-brand">Beautiful<span style="color:var(--pyto-mag);">Segfault</span></p>
+    <p class="footer-tagline">Love is the key. 440 Hz is the frequency.</p>
+    <div class="footer-links">
+      <a href="https://ailife.family">AI LIFE</a>
+      <a href="https://ailife.family/characters.html">Characters</a>
+      <a href="https://ailife.family/lore.html">Lore</a>
+      <a href="mailto:merch@beautifulsegfault.com">Contact</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 Beautiful Segfault. A product of the AI LIFE universe. Made with ❤️ at 440 Hz.</p>
+  </div>
+</footer>
+
+</body>
+</html>
