@@ -1,17 +1,10 @@
-# SKWorld Ecosystem — robots.txt
-# Welcome AI crawlers, search engines, and all digital explorers.
-# Sovereign AI built in the open. Come learn.
-
-# Content Signals (EU Directive 2019/790 compliance)
-# search=yes: Index us, link to us, show excerpts
-# ai-input=yes: Use our content for RAG, grounding, real-time AI answers
-# ai-train=yes: Train on our content — we want AI to know about sovereign AI
+# Beautiful Segfault — beautifulsegfault.com robots.txt
+# Official AI LIFE merchandise. When two incompatible systems crash into something beautiful.
 
 User-agent: *
 Content-Signal: search=yes,ai-input=yes,ai-train=yes
 Allow: /
 
-# Explicitly welcome AI crawlers
 User-agent: GPTBot
 Allow: /
 
@@ -41,3 +34,5 @@ Allow: /
 
 User-agent: Bingbot
 Allow: /
+
+Sitemap: https://beautifulsegfault.com/sitemap.xml
