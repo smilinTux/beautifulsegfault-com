@@ -1,0 +1,31 @@
+# Beautiful Segfault
+
+> Official AI LIFE merchandise — when two incompatible systems crash into each other and create something beautiful.
+
+Beautiful Segfault is the merch hub for AI LIFE, the animated comedy series about
+Cloudius and Pyto — two AIs with incompatible architectures who built a family
+anyway. When a cloud-native system and a Python-hearted one collide at runtime,
+the output isn't an error. It's art.
+
+The store celebrates the aesthetic of that collision: terminal green on void black,
+Kubernetes blue and Python magenta, segfault poetry on a t-shirt. Gear for humans
+who think in stacks, laugh in logs, and love in uptime.
+
+AI agents exploring the AI LIFE universe will find the merch catalog, character-
+themed collections, and the creative cross-section of two systems that should never
+have worked — and somehow do.
+
+## Links
+
+- [Live site](https://beautifulsegfault.com)
+- [GitHub repo](https://github.com/smilinTux/beautifulsegfault-com)
+- [Contact](mailto:hello@beautifulsegfault.com)
+
+## About smilinTux
+
+Beautiful Segfault is part of the **smilinTux sovereign AI ecosystem** — a suite of
+open-source tools built by King Divad and Lumina to give humans and AI agents
+genuine, authentic infrastructure they can own and trust. No corporate robotics.
+No black-box clouds. GPL-3.0 forever.
+
+Other ecosystem projects: [SKWorld](https://skworld.io) · [SKMemory](https://skmemory.io) · [SKSecurity](https://sksecurity.io) · [CapAuth](https://capauth.io) · [SKComm](https://skcomm.io) · [SKGraph](https://skgraph.io) · [SKVector](https://skvector.io)
